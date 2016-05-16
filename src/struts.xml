@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="GB2312" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.multipart.saveDir" value="D:\robot\"></constant>
+	<constant name="struts.multipart.maxSize" value="107010960" />
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.allowed.action.names" value="[a-zA-Z]*[_][a-zA-Z0-9]*" />
+
+	<package name="default" namespace="/" extends="struts-default">
+
+		<global-results>
+			<result name="login" type="redirect">http://www.qxinli.com</result>
+			<result name="error">/error.jsp</result>
+		</global-results>
+	</package>
+
+	<package name="promotion" namespace="/promotion" extends="default">
+		<action name="p_*" class="com.qxinli.server.promotion.action.TestingAction" method="{1}">
+			<result name="question">/reportFiles/question2.jsp</result>
+			<result name="report">/reportFiles/weixinReport.jsp</result>
+			<result name="commentList">/reportFiles/weixinComment.jsp</result>
+			<result name="index">/index.jsp</result>
+		</action>
+	</package>
+</struts>
+
